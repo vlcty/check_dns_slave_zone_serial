@@ -54,10 +54,10 @@ func main() {
 
 		if err != nil {
 			messages = append(messages, fmt.Sprintf("%s query error: %s", slave, err.Error()))
-			exitCode = 3
+			exitCode = 2
 		} else if masterSerial != serial {
 			messages = append(messages, fmt.Sprintf("%s serial mismatch (%d)", slave, serial))
-			exitCode = 3
+			exitCode = 2
 		} else {
 			messages = append(messages, fmt.Sprintf("%s is in sync", slave))
 		}
