@@ -22,4 +22,4 @@ Compile the go source file for your arch. For linux on amd64: `GOOS=linux GOARCH
 
 ## IP formats
 
-IP addresses must be in brackets. Legacy IP address don't need to be.
+IP addresses must be in brackets. Legacy IP address don't.
