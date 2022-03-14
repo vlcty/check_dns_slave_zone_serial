@@ -12,6 +12,7 @@ import (
 
 var (
 	errNoResponse error = errors.New("No response")
+	errNoSOA error = errors.New("Did not receive a SOA record")
 )
 
 func exitUnknown(message string) {
@@ -80,9 +81,11 @@ func fetchSerialFromServer(zone, server string) (uint32, error) {
 
 		result, err := dns.Exchange(message, server+":53")
 
-		if err == nil {
+		if err == nil && len(result.Answer) > 0 {
 			if soa, ok := result.Answer[0].(*dns.SOA); ok {
 				return soa.Serial, nil
+			} else {
+				return 0, errNoSOA
 			}
 		}
 	}
