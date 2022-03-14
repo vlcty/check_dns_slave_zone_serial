@@ -66,7 +66,7 @@ func main() {
 
 	label := "OK"
 
-	if exitCode == 3 {
+	if exitCode == 2 {
 		label = "CRITICAL"
 	}
 
